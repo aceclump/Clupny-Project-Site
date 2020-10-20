@@ -1,0 +1,75 @@
+@use 'mainVars' as main;
+
+//CSS Sheet Designed for 1920x1080+
+
+.HeaderHome {
+    background-color: main.$accentColor;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-family: main.$textFontFamily;
+}
+
+    .HeaderHome-profilePic {
+        width: 300px;
+        height: 300px;
+        margin: 50px 0px;
+        margin-left: 100px;
+    }
+
+    .HeaderHome-introduction {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+        
+        .HeaderHome-introduction-name {
+            font-size: main.$textIntroductionNameSize;
+        }
+
+        .HeaderHome-introduction-title {
+            font-size: main.$textIntroductionTitleSize;
+            margin-left: 20px
+        }
+
+    .HeaderHome-linkArea {
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+        align-self: center;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+
+        .HeaderHome-linkArea-link {
+            color: main.$textPrimaryColor;
+            font-size: main.$textHeaderHomeLinkSize;
+        }
+
+            .HeaderHome-linkArea-link a {
+                text-decoration: none;
+                display: flex;
+            }
+
+            .HeaderHome-linkArea-link a:hover {
+                text-decoration: underline;
+            }
+                .HeaderHome-linkArea-link-logo {
+                    height: 40px;
+                    width: 55px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .HeaderHome-linkArea-link-logo img {
+                    height: 40px;
+                    max-width: 55px;
+                }
+
+                .HeaderHome-linkArea-link-text {
+                    margin-left:20px;
+                }
