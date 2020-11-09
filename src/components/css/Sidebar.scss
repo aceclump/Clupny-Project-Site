@@ -1,0 +1,50 @@
+
+@use '../../css/mainVars.scss' as main;
+@use '1920px/Sidebar.scss' as b1920;
+@use '1024px/Sidebar.scss' as b1024;
+@use '640px/Sidebar.scss' as b640;
+@use '0-640px/Sidebar.scss' as b0;
+
+.Sidebar {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+    border-style: solid;
+    border-width: 2px;
+    border-right-width: 30px;
+    border-left-width: 0px;
+    border-color: main.$accentColor;
+    font-family: main.$textFontFamily;
+    color: main.$textSecondaryColor;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: max-content;
+    width: max-content;
+    color: main.$textPrimaryColor;
+}
+
+.Sidebar:hover .Sidebar-links{
+    width: max-content;
+}
+
+    .Sidebar-links {
+        display: flex;
+        flex-direction: column;
+        width: 0px;
+        overflow: hidden;
+    }
+
+    .Sidebar a {
+        width: max-content;
+        margin:5px 15px;
+        text-decoration: none;
+    }
+
+    .Sidebar-link {
+        font-size: 40px;
+    }
+
+    .Sidebar-subLink {
+        font-size:35px;
+        padding-left: 25px;
+    }

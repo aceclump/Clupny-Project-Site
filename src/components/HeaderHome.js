@@ -21,12 +21,13 @@ function HeaderHomeLink(props) {
 function HeaderHome(props) {
     return(
         <div className="HeaderHome">
-            <img className="HeaderHome-profilePic" src={profilePic} alt="Me" title="Profile picture of me" />
+            <a href="./">
+                <img className="HeaderHome-profilePic" src={profilePic} alt="Me" title="Profile picture of me" />
+            </a>
             <div className="HeaderHome-introduction">
                 <div className="HeaderHome-introduction-name">
                     Lucas L. Clupny
                 </div>
-                <div className="HeaderHome-introduction-hr"></div>
                 <div className="HeaderHome-introduction-title">
                     Junior Fullstack Developer
                 </div>

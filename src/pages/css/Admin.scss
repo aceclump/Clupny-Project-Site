@@ -1,0 +1,70 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/Admin.scss' as b1920;
+@use '1024px/Admin.scss' as b1024;
+@use '640px/Admin.scss' as b640;
+@use '0-640px/Admin.scss' as b0;
+
+.content {
+    padding-top: 175px;
+}
+
+    .Admin {
+        height: 100%;
+    }
+
+    .Admin-login {
+        margin: 50px auto;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        background-color: main.$backgroundSecondaryColor;
+        color: main.$textSecondaryColor;
+        box-shadow: 5px 5px 5px #222222;
+        width: 700px;
+    }
+
+        .Admin-login > div {
+            margin:15px auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .Admin-login-result {
+            color:#CC0000;
+        }
+
+        .Admin-login input {
+            box-shadow: main.$boxShadow #666666;
+        }
+
+            .Admin-login-label {
+                margin-bottom: 5px;
+            }
+
+            .Admin-login-buttons {
+                display: flex;
+                flex-direction: row;
+            }
+            
+            .Admin-login-buttons input {
+                background-color: main.$accentColor;
+                border:none;
+                padding: 3px;
+                color:  main.$textSecondaryColor;
+                text-transform: uppercase;
+            }
+
+            .Admin-login-buttons input:hover {
+                color:  main.$textPrimaryColor;
+                cursor: pointer;
+            }
+
+            .Admin-login-buttons a {
+                margin-top: 10px;
+            }
+
+            .Admin-login-buttons a:hover {
+                margin-top: 10px;
+                text-decoration: none;
+            }

@@ -1,0 +1,91 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/AdminProjectSection.scss' as b1920;
+@use '1024px/AdminProjectSection.scss' as b1024;
+@use '640px/AdminProjectSection.scss' as b640;
+@use '0-640px/AdminProjectSection.scss' as b0;
+
+.AdminProjectSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 50px 0px 50px;
+    width: 100%;
+}
+
+    .AdminProjectSection-delete {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 30px;
+        height: 30px;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+    }
+
+    .AdminProjectSection-row {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        margin-bottom: 20px;
+        
+    }
+
+        .AdminProjectSection-row > * {
+            margin: 0 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .AdminProjectSection-TextBox {
+            background-color: white;
+            padding: 5px;
+            display: flex;
+            flex-grow: 1;
+            font-family: main.$textFontFamily;
+            box-shadow: main.$boxShadow;
+        }
+
+        .AdminProjectSection-description {
+            width:50%;
+            flex-grow: 0;
+        }
+
+        .AdminProjectSection-TechList-addButton {
+            height: 50px;
+        }
+
+            .AdminProjectSection-PictureList-ProjectPicture {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-grow: 1;
+            }
+
+                .AdminProjectSection-PictureList-ProjectPicture-pic {
+                    height: 100px;
+                    margin: 0px 1px;
+                }
+                
+                .AdminProjectSection-PictureList-ProjectPicture-delete {
+                    position: absolute; 
+                    top:0px;
+                    right: 0px;
+                    transform: translate(50%, -50%);
+                    z-index: 1;
+                }
+
+        .AdminProjectSection-PictureList-addFile {
+            display: none;
+        }
+
+        .AdminProjectSection-update {
+            cursor: pointer;
+            width: fit-content;
+            align-self: center;
+            background: main.$accentColor;
+            color: main.$textSecondaryColor;
+            padding: 5px;
+            border: none;
+            box-shadow: main.$boxShadow;
+            font-size: 30px;
+        }

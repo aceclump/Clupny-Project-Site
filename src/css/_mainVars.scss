@@ -1,0 +1,36 @@
+$accentColor: #38a8ff;
+$backgroundPrimaryColor: #303030;
+$backgroundSecondaryColor: #A3A3A3;
+
+$textPrimaryColor: #FFFFFF;
+$textSecondaryColor: #303030;
+$textFontFamily: Tahoma;
+$textIntroductionNameSize: 115px;
+$textIntroductionTitleSize: 45px;
+$textHeaderHomeLinkSize: 32px;
+
+$breakLargeMin: 1920px;
+$breakMediumMin: 1024px;
+$breakSmallMin: 640px;
+
+$boxShadow: 5px 5px 5px;;
+
+body {
+    margin: 0px;
+    height: 100%;
+    background-attachment: fixed;
+    background-image: url('../assets/BG.PNG');
+    font-family: $textFontFamily;
+}
+
+a:link {
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}

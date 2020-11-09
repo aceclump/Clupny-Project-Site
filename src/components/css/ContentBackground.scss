@@ -1,0 +1,17 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/ContentBackground.scss' as b1920;
+@use '1024px/ContentBackground.scss' as b1024;
+@use '640px/ContentBackground.scss' as b640;
+@use '0-640px/ContentBackground.scss' as b0;
+
+.ContentBackground {
+    position: fixed;
+    top: 0px;    
+    left: 50%;
+    transform: translate(-50%, 0px);
+    background-color: main.$backgroundPrimaryColor;
+    width: 1920px;
+    height: 100%;
+    box-shadow: 0 0 3px 3px #1E1E1E inset;
+    z-index: -1;
+}

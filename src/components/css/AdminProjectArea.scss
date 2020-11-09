@@ -1,0 +1,38 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/AdminProjectArea.scss' as b1920;
+@use '1024px/AdminProjectArea.scss' as b1024;
+@use '640px/AdminProjectArea.scss' as b640;
+@use '0-640px/AdminProjectArea.scss' as b0;
+
+.AdminProjectArea {
+    position: absolute;
+    left: 50%;
+    width: 1920px;
+    transform: translateX(-50%);
+    top:175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .unpressed {
+        cursor: pointer;
+        filter: brightness(100%);
+    }
+
+    .pressed {
+        cursor: pointer;
+        filter: brightness(50%);
+    }
+
+    .AdminProjectArea-warning {
+        width: fit-content;
+        padding: 10px;
+        background-color: #a3a3a3;
+        color: #cc0000;
+    }
+
+    .AdminProjectArea-addButton {
+        margin-top: 50px;
+    }
