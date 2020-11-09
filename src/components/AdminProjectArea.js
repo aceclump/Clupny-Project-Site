@@ -54,8 +54,10 @@ class AdminProjectArea extends React.Component {
 					src={Plus}
 					alt="Add Project"
 					title="Add Project"
-				 	className={"AdminProjectArea-addButton"+
-					 ((this.state.buttonPressed)?" pressed":" unpressed")} 
+					className={
+						"AdminProjectArea-addButton"+
+						 ((this.state.buttonPressed)?" pressed":" unpressed")
+					} 
 					onMouseDown={
 						() => {
 							this.setState(

@@ -12,6 +12,16 @@
         height: 100%;
     }
 
+    .Admin .unpressed {
+        cursor: pointer;
+        filter: brightness(100%);
+    }
+
+    .Admin .pressed {
+        cursor: pointer;
+        filter: brightness(50%);
+    }
+
     .Admin-login {
         margin: 50px auto;
         padding: 30px;
@@ -68,3 +78,14 @@
                 margin-top: 10px;
                 text-decoration: none;
             }
+    .Admin-content {
+        position: absolute;
+        left: 50%;
+        width: 1920px;
+        transform: translateX(-50%);
+        top:175px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }

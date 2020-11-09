@@ -32,7 +32,9 @@ class ProjectController {
             formData.append('id', this.projects[index].id)
             formData.append('label', label)
             api.makeApiPostCall('projectAddPicture/', formData).then(this.updatePage())
-            
+        }
+        else {
+            this.updatePage()
         }
     }
 

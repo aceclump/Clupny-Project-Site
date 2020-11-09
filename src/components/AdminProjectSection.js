@@ -120,7 +120,7 @@ class ProjectPicture extends React.Component {
 					} 
 					src={Exit}
 					alt="Delete Picture"
-					Title="Delete Picture"
+					title="Delete Picture"
 					onMouseDown={
 						()=>{
 							this.setState(

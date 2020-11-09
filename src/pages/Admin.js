@@ -1,9 +1,11 @@
 import React from 'react';
 import AdminProjectArea from '../components/AdminProjectArea.js';
+import AdminTechArea from '../components/AdminTechArea.js';
 import ContentBackground from '../components/ContentBackground.js'
 import Header from '../components/Header.js';
 import Sidebar from '../components/Sidebar.js'
 import ProjectController from './js/ProjectControl'
+import TechController from './js/TechControl'
 import './css/Admin.scss';
 
 var login = require('../login.config.js')
@@ -16,9 +18,10 @@ class Admin extends React.Component {
       auth: false, //change to false for production 
       wrongpass: false,
       projectController: new ProjectController(this),
+      techController: new TechController(this),
     };
     this.state.projectController.getProjects();
-    //this.state.TechController.getTechs();
+    this.state.techController.getTechs();
   }
 
   checkCredientals = (guest = false) => {
@@ -31,6 +34,7 @@ class Admin extends React.Component {
     }
     else if (guest === true) {
       this.state.projectController.fake=true;
+      this.state.techController.fake=true;
       this.setState({
         auth: "guest",
       })
@@ -65,21 +69,15 @@ class Admin extends React.Component {
           <a onClick={() => {this.checkCredientals(true);}} className="Admin-login-guest" href="#">Continue as Guest</a>
         </div>
       </div>
-    );
+    ); 
   }
-
-  /*async getTechs() {
-    const techs = await api.makeApiGetCall('techs/',);
-    this.setState({
-        techs: techs,
-    })
-  }*/
   
 
   renderContent() {
     return(
       <div className="Admin-content">  
-        <AdminProjectArea controller={this.state.projectController}/>
+        <AdminProjectArea controller={this.state.projectController} techs={this.state.techController.techs}/>
+        <AdminTechArea controller={this.state.techController} />
       </div>
     );
   }
@@ -88,6 +86,7 @@ class Admin extends React.Component {
     return(
       <div className="Admin-content">
         <AdminProjectArea controller={this.state.projectController} fake/>
+        <AdminTechArea controller={this.state.techController}/>
       </div>
     )
   } 

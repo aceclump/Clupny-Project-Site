@@ -3,3 +3,87 @@
 @use '1024px/AdminTechSection.scss' as b1024;
 @use '640px/AdminTechSection.scss' as b640;
 @use '0-640px/AdminTechSection.scss' as b0;
+
+.AdminTechSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 10px 0px 10px;
+    width: 48%;
+}
+
+    .AdminTechSection-delete {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 20px;
+        height: 20px;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+    }
+
+    .AdminTechSection-row {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        margin-bottom: 20px;
+        
+    }
+
+        .AdminTechSection-row > * {
+            margin: 0 10px;
+            display: flex;
+            flex-direction: row;
+        }   
+
+        .AdminTechSection-TextBox {
+            background-color: white;
+            padding: 5px;
+            display: flex;
+            flex-grow: 1;
+            font-size: 30px;
+            font-family: main.$textFontFamily;
+            box-shadow: main.$boxShadow;
+            height: 36px;
+        }
+
+        .AdminTechSection-update {
+            cursor: pointer;
+            width: fit-content;
+            align-self: center;
+            background: main.$accentColor;
+            color: main.$textSecondaryColor;
+            padding: 5px;
+            border: none;
+            box-shadow: main.$boxShadow;
+            font-size: 30px;
+        }
+
+        .AdminTechSection-picture-addButton {
+            height: 50px;
+            margin: 0px 1px;
+        }
+
+        
+        .AdminTechSection-TechPicture {
+            position: relative;
+        }
+
+            .AdminTechSection-TechPicture-pic {
+                height: 50px;
+                margin: 0px 1px;
+            }
+
+            .AdminTechSection-TechPicture-delete {
+                position: absolute; 
+                top:0px;
+                right: 0px;
+                transform: translate(50%, -50%);
+                z-index: 1;
+            }
+
+            .AdminTechSection-picture-addFile {
+                display: none;
+            }
+
+            
