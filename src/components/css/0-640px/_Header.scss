@@ -1,5 +1,35 @@
 @use '../../../css/mainVars' as main;
 
 @media(max-width: main.$breakSmallMin - 1) {
+    .Header {
+        height: fit-content;  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 300px;
+        justify-content: space-evenly;
+    }
 
+        .Header-profilePic {
+            width: 150px;
+            height: 150px;
+        }
+
+            .Header-introduction {
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+                .Header-introduction-name {
+                    font-size: 52px;
+                    border-style: solid;
+                    border-width: 0px;
+                    border-bottom-width: 2px;
+                    border-color: main.$textSecondaryColor;
+                }
+
+                .Header-introduction-title {
+                    font-size: 26px;
+                }
 }

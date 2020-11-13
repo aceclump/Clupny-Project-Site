@@ -1,5 +1,46 @@
 @use '../../../css/mainVars.scss' as main;
 
 @media(min-width: main.$breakLargeMin) {
+    .HeaderHome {
+        height: 400px;
+    }
+
+        .HeaderHome-profilePic {
+            width: 300px;
+            height: 300px;
+            margin: 50px 0px;
+            margin-left: 100px;
+        }
+
+            .HeaderHome-introduction-name {
+                font-size: 115px;
+            }
+
+            .HeaderHome-introduction-title {
+                margin-left: 20px;
+                font-size: 45px;
+            }
+
+        .HeaderHome-linkArea {
+            margin-right: 50px;
+        }
+
+            .HeaderHome-linkArea-link {
+                font-size: 32px;
+            }
+
+                .HeaderHome-linkArea-link-logo {
+                    height: 40px;
+                    width: 55px;
+                }
+
+                .HeaderHome-linkArea-link-logo img {
+                    height: 40px;
+                    max-width: 55px;
+                }
+
+                .HeaderHome-linkArea-link-text {
+                    margin-left:20px;
+                }
 
 }
