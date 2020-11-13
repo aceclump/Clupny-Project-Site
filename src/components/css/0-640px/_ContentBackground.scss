@@ -1,5 +1,7 @@
 @use '../../../css/mainVars' as main;
 
 @media(max-width: main.$breakSmallMin - 1) {
-
+    .ContentBackground {
+        width: 100%;
+    }
 }
