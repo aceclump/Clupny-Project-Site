@@ -21,6 +21,11 @@ class ProjectController {
         this.projects[index][label] = event.target.value;
         this.updatePage()
     }
+
+    handleTechIds(index, list) {
+        this.projects[index].tech_ids = JSON.stringify(list);
+        this.updatePage()
+    }
     
     handleNewPicture(event, index, label) {
         let pics=(this.projects[index][label] !== '')?JSON.parse(this.projects[index][label]):[];
@@ -50,7 +55,14 @@ class ProjectController {
         }
     }
     
-    handleNewProject(index) {
+    handleNewProject() {
+        let index=0;
+        for(let i = 0; i < this.projects.length; i++) {
+            if(this.projects[i].id>index) {
+                index=this.projects[i].id
+            }
+        }
+        index++;
         this.projects.push(
             {
                 id: index,

@@ -21,6 +21,7 @@
     height: max-content;
     width: max-content;
     color: main.$textPrimaryColor;
+    box-shadow: main.$boxShadow #202020;
 }
 
 .Sidebar:hover .Sidebar-links{
@@ -32,6 +33,8 @@
         flex-direction: column;
         width: 0px;
         overflow: hidden;
+        background: main.$backgroundPrimaryColor;
+        
     }
 
     .Sidebar a {

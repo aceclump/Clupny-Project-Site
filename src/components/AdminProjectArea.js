@@ -17,7 +17,7 @@ class AdminProjectArea extends React.Component {
 				buttonPressed: false,
 			}
 		)
-		this.props.controller.handleNewProject(this.props.controller.projects.length)
+		this.props.controller.handleNewProject()
 	}
 
 	render() {
@@ -42,6 +42,7 @@ class AdminProjectArea extends React.Component {
 						id={this.props.controller.projects[i].id}
 						key={i}
 						index={i}
+						techs={this.props.techs}
 					/>
 				)
 			}

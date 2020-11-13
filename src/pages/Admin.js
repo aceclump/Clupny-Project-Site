@@ -66,7 +66,7 @@ class Admin extends React.Component {
         </div>
         <div className="Admin-login-buttons" >
           <input onClick={() => this.checkCredientals()} className="Admin-login-submit" type="button" value="Submit" />
-          <a onClick={() => {this.checkCredientals(true);}} className="Admin-login-guest" href="#">Continue as Guest</a>
+          <div onClick={() => {this.checkCredientals(true);}} className="Admin-login-guest">Continue as Guest</div>
         </div>
       </div>
     ); 
@@ -85,7 +85,7 @@ class Admin extends React.Component {
   renderFakeContent() {
     return(
       <div className="Admin-content">
-        <AdminProjectArea controller={this.state.projectController} fake/>
+        <AdminProjectArea controller={this.state.projectController} techs={this.state.techController.techs} fake/>
         <AdminTechArea controller={this.state.techController}/>
       </div>
     )

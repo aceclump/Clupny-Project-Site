@@ -41,7 +41,7 @@ class TechPicture extends React.Component {
 		return(
 			<div className="AdminTechSection-TechPicture">
 				<img 
-					alt="Tech Picture" 
+					alt="Tech" 
 					src={this.props.src}
 					className="AdminTechSection-TechPicture-pic"
 				/>
@@ -51,8 +51,8 @@ class TechPicture extends React.Component {
 						((this.state.buttonPressed)?" pressed":" unpressed")
 					} 
 					src={Exit}
-					alt="Delete Picture"
-					Title="Delete Picture"
+					alt="Delete"
+					title="Delete Picture"
 					onMouseDown={
 						()=>{
 							this.setState(
@@ -179,7 +179,7 @@ class AdminTechSection extends React.Component {
 			firstElement=(<label>
 					<img 
 						src={Plus}
-						alt="Add Picture"
+						alt="Add"
 						title="Add Picture"
 						className={
 							"AdminTechSection-picture-addButton" +
@@ -254,6 +254,7 @@ class AdminTechSection extends React.Component {
 					className={"AdminTechSection-delete"+
 						((this.state.buttonPressed)?" pressed":" unpressed")}
 					src={Exit}
+					alt="Delete"
 					onMouseDown={
 						()=>{
 							this.setState(

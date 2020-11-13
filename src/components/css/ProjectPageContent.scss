@@ -1,0 +1,53 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/ProjectPageContent.scss' as b1920;
+@use '1024px/ProjectPageContent.scss' as b1024;
+@use '640px/ProjectPageContent.scss' as b640;
+@use '0-640px/ProjectPageContent.scss' as b0;
+
+.ProjectPageContent {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    color: main.$textPrimaryColor;
+}
+
+    .ProjectPageContent-Title {
+        display: flex;
+        justify-content: center ;
+        margin: 50px;
+        font-size: 110px;
+    }
+
+    .ProjectPageContent-Section {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .ProjectPageContent-Section-title {
+            margin: 20px;
+            font-size: 50px;
+            text-decoration: underline;
+        }
+
+        .ProjectPageContent-Section-paragraph {
+            margin: 20px;
+            display: flex;
+            text-align: center;
+            white-space: pre-line;
+        }
+
+        .ProjectPageContent-Section-picturelist {
+            margin: 10px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+            .ProjectPageContent-Section-picturelist-picture {
+                width: 30%;
+            }

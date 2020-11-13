@@ -1,0 +1,5 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/ProjectList.scss' as b1920;
+@use '1024px/ProjectList.scss' as b1024;
+@use '640px/ProjectList.scss' as b640;
+@use '0-640px/ProjectList.scss' as b0;

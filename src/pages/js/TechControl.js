@@ -47,7 +47,14 @@ class TechController {
         this.updatePage()
     }
     
-    handleNewTech(index) {
+    handleNewTech() {
+        let index=0;
+        for(let i = 0; i < this.techs.length; i++) {
+            if(this.techs[i].id>index) {
+                index=this.techs[i].id
+            }
+        }
+        index++;
         this.techs.push(
             {
                 id: index,

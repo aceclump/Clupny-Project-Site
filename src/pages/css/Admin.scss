@@ -70,14 +70,11 @@
                 cursor: pointer;
             }
 
-            .Admin-login-buttons a {
+            .Admin-login-guest {
                 margin-top: 10px;
+                cursor: pointer;
             }
 
-            .Admin-login-buttons a:hover {
-                margin-top: 10px;
-                text-decoration: none;
-            }
     .Admin-content {
         position: absolute;
         left: 50%;

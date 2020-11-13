@@ -1,0 +1,70 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/ProjectListContent.scss' as b1920;
+@use '1024px/ProjectListContent.scss' as b1024;
+@use '640px/ProjectListContent.scss' as b640;
+@use '0-640px/ProjectListContent.scss' as b0;
+
+.ProjectListContent {
+    position: absolute;
+    top: 175px;
+    left :50%;
+    width: 1920px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: main.$textPrimaryColor
+}
+
+    .ProjectListContent-title {
+        color: main.$textPrimaryColor;
+        font-size: main.$textPageHeaderSize;
+        margin: 50px 0px;
+    }
+
+    .ProjectListSection {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-decoration: none;
+    }
+
+        .ProjectListSection-link {
+            text-decoration: none;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        .ProjectListSection-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px 100px;
+            width: fit-content;
+        }
+
+            .ProjectListSection-row.first > * {
+                margin-left: 25px;
+            }
+    
+            .ProjectListSection-projectPic {
+                height: 100px;
+                border-style: solid;
+                color: #202020;
+                box-shadow: main.$boxShadow;
+            }
+
+            .ProjectListSection-name {
+                font-size: main.$textIntroductionTitleSize;
+            }
+
+            .ProjectListSection-techPic {
+                height: 50px;
+                margin-left:10px;
+            }
+
+        .ProjectListSection-row.second {
+            margin-left: 100px;
+            width: 100%;
+            font-size: 25px;
+        }

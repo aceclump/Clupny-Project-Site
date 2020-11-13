@@ -1,0 +1,16 @@
+@use '../../css/mainVars.scss' as main;
+@use '1920px/NotFound.scss' as b1920;
+@use '1024px/NotFound.scss' as b1024;
+@use '640px/NotFound.scss' as b640;
+@use '0-640px/NotFound.scss' as b0;
+
+.NotFoundContent {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    font-size: 150px;
+    font-family: main.$textFontFamily;
+    color: main.$textPrimaryColor;
+}

@@ -1,11 +1,18 @@
 import React from 'react';
-import HeaderHome from 'components/HeaderHome.js'
+import ContentBackground from '../components/ContentBackground.js';
+import Header from '../components/Header.js';
+import Sidebar from '../components/Sidebar.js';
+import ProjectPageContent from '../components/ProjectPageContent.js';
+import './css/ProjectPage.scss'
 
-
-function ProjectPage() {
+function ProjectPage(props) {
   return (
-      <HeaderHome />
-      
+    <div className="ProjectPage">
+      <Header />
+      <Sidebar />
+      <ContentBackground />
+      <ProjectPageContent id={props.match.params.id}/>
+    </div>
   );
 }
 

@@ -20,6 +20,131 @@ function TextBox(props) {
 	)
 }
 
+function TechListDialogOption(props) {
+	let selected = "";
+	if(props.selected) {
+		selected = " selected";
+	}
+	return(
+		<div className={"AdminProjectSection-TechList-TechListDialog-TechListDialogOption" + selected}>
+			<label title={props.name}>
+				<img 
+					className="AdminProjectSection-TechList-TechListDialog-TechListDialogOption-pic"
+					src={props.src} 
+					alt={props.name}
+				/>
+				<div className="AdminProjectSection-TechList-TechListDialog-TechListDialogOption-text">
+					{props.name}
+				</div>
+				<input 
+					type="checkbox" 
+					className="AdminProjectSection-TechList-TechListDialog-TechListDialogOption-input" 
+					checked={props.selected}
+					onChange={()=>props.toggleSelected()}
+				/>
+			</label>
+		</div>
+	)
+}
+
+class TechListDialog extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			buttonPressed: false,
+			tech_ids: this.props.tech_ids,
+		}
+	}
+
+	toggleSelected(id) {
+		let arr=this.state.tech_ids
+		if (arr.includes(id)) {
+			let i=0;
+			while (arr[i] !== id) {
+				i++
+			}
+			arr.splice(i, 1);
+		}
+		else {
+			arr.push(id);
+			arr.sort();
+		}
+		this.setState(
+			{
+				tech_ids: arr,
+			}
+		)
+	}
+
+	handleClick() {
+		this.props.controller.handleTechIds(this.props.index, this.state.tech_ids)
+		this.setState(
+			{
+				buttonPressed: false
+			}
+		)
+		this.props.close()
+	}
+
+	render() {
+		let content=[];
+		for (let i = 0; i < this.props.techs.length; i++) {
+			let selected=false;
+			if (this.state.tech_ids.includes(this.props.techs[i].id)) {
+				selected=true
+			}
+			content.push(
+				<TechListDialogOption 
+					src={this.props.techs[i].picture_path}
+					name={this.props.techs[i].name}
+					id={this.props.techs[i].id}
+					selected={selected}
+					toggleSelected={()=>this.toggleSelected(this.props.techs[i].id)}
+					key={i}
+				/>
+			)
+		}
+		return (
+			<div className="AdminProjectSection-TechList-TechListDialog">
+				<div className="AdminProjectSection-TechList-TechListDialog-TechListDialogOptions">
+					{content}
+				</div>
+				<input 
+				type="button" 
+				className={
+					"AdminProjectSection-TechList-TechListDialog-confirm" + 
+					((this.state.buttonPressed)?" pressed":" unpressed")
+				}
+				value="Confirm" 
+				onMouseDown={
+					() => {
+						this.setState(
+							{
+								buttonPressed: true
+							}
+						)
+					}
+				}
+				onMouseUp={
+					() => {
+						this.handleClick()
+					}
+				}
+				onMouseLeave={
+					() => {
+						this.setState(
+							{
+								buttonPressed: false
+							}
+						)
+					}
+				}
+			/>
+			</div>
+		)
+	}
+}
+
 class TechPicture extends React.Component {
 	constructor(props) {
 		super(props);
@@ -30,8 +155,12 @@ class TechPicture extends React.Component {
 	render() {
 		return(
 			<div className="AdminProjectSection-TechList-TechPicture">
-				<img alt="Tech Picture"/>
-				<img alt="Delete Picture" src={Exit}/>
+				<img 
+					className="AdminProjectSection-TechList-TechPicture-pic"
+					alt={this.props.name}
+					title={this.props.name}
+					src={this.props.src} 
+				/>
 			</div>
 		)
 	}
@@ -40,21 +169,95 @@ class TechPicture extends React.Component {
 class TechList extends React.Component {
 	constructor(props) {
 		super(props);
+		let tech_ids = [];
+		if (this.props.tech_ids !== '') {
+			tech_ids=JSON.parse(this.props.tech_ids)
+		}
 		this.state = {
-			buttonPressed: false
+			buttonPressed: false,
+			dialog: false,
+			tech_ids: tech_ids
 		}
 	}
 
 	handleClick() {
 		this.setState(
 			{
-				buttonPressed:false
+				buttonPressed: false,
+				dialog: true
 			}
 		)
 	}
 
+	toggleSelected(id) {
+		let arr=this.state.tech_ids
+		if (arr.includes(id)) {
+			let i=0;
+			while (arr[i] !== id) {
+				i++
+			}
+			arr.splice(i, 1);
+		}
+		else {
+			arr.push(id);
+			arr.sort();
+		}
+		this.setState(
+			{
+				tech_ids: arr,
+			}
+		)
+	}
+
+	toggleDialog() {
+		this.setState(
+			{
+				dialog: false
+			}
+		)
+	}
+
+	getTech(id) {
+		for (let i = 0; i < this.props.techs.length; i++) {
+			if (this.props.techs[i].id === id) {
+				return this.props.techs[i]
+			}
+		}
+	}
+
 	render() {
 		let content=[];
+		if (this.state.dialog) {
+			content=(
+				<TechListDialog 
+					controller={this.props.controller}
+					tech_ids={this.state.tech_ids} 
+					techs={this.props.techs}
+					index={this.props.index}
+					close={()=>this.toggleDialog()}
+				/>
+			)
+		}
+		else {
+			let toDelete=[]
+			for (let i = 0; i < this.state.tech_ids.length; i++) {
+				if (this.getTech(this.state.tech_ids[i])) {
+					content.push(
+						<TechPicture 
+							src={this.getTech(this.state.tech_ids[i]).picture_path}
+							name={this.getTech(this.state.tech_ids[i]).name}
+							key={i}
+						/>
+					)
+				} 
+				else {
+					toDelete.push(this.state.tech_ids[i])
+				}
+			}
+			for(let i = 0; i < toDelete.length; i++) {
+				this.toggleSelected(toDelete[i]);
+			}
+		}
 		return(
 			<div className="AdminProjectSection-TechList">
 				{content}
@@ -64,6 +267,7 @@ class TechList extends React.Component {
 						((this.state.buttonPressed)?" pressed":" unpressed")
 					}
 					src={Plus} 
+					alt="Add"
 					onMouseDown={
 						()=>{
 							this.setState(
@@ -113,13 +317,13 @@ class ProjectPicture extends React.Component {
 	render() {
 		return(
 			<div className="AdminProjectSection-PictureList-ProjectPicture">
-				<img src={this.props.src} alt="Picture" className="AdminProjectSection-PictureList-ProjectPicture-pic"/>
+				<img src={this.props.src} alt="Project" className="AdminProjectSection-PictureList-ProjectPicture-pic"/>
 				<img 
 					className={"AdminProjectSection-PictureList-ProjectPicture-delete"+
 						((this.state.buttonPressed)?" pressed":" unpressed")
 					} 
 					src={Exit}
-					alt="Delete Picture"
+					alt="Delete"
 					title="Delete Picture"
 					onMouseDown={
 						()=>{
@@ -178,7 +382,7 @@ class PictureList extends React.Component {
 				<label>
 					<img 
 						src={Plus}
-						alt="Add Picture"
+						alt="Add"
 						title="Add Picture"
 						className={
 							"AdminProjectSection-PictureList-addButton" +
@@ -328,7 +532,12 @@ class AdminProjectSection extends React.Component {
 						controller={this.props.controller} 
 						index={this.props.index} label="name"
 					/>
-					<TechList techs={this.props.project.tech_ids}/>
+					<TechList 
+						tech_ids={this.props.project.tech_ids} 
+						techs={this.props.techs}
+						index={this.props.index}
+						controller={this.props.controller}
+					/>
 					<TextBox 
 						className="AdminProjectSection-description" 
 						value={this.props.project.description} 
@@ -345,7 +554,7 @@ class AdminProjectSection extends React.Component {
 						label="purpose"
 					/>
 					<PictureList 
-						pics={(this.props.project.picture_paths_prototype != '')?JSON.parse(this.props.project.picture_paths_prototype):[]}
+						pics={(this.props.project.picture_paths_prototype !== '')?JSON.parse(this.props.project.picture_paths_prototype):[]}
 						controller={this.props.controller}
 						index={this.props.index}
 						label="picture_paths_prototype"
@@ -359,7 +568,7 @@ class AdminProjectSection extends React.Component {
 						index={this.props.index} label="results"
 					/>
 					<PictureList 
-						pics={(this.props.project.picture_paths_results != '')?JSON.parse(this.props.project.picture_paths_results):[]}
+						pics={(this.props.project.picture_paths_results !== '')?JSON.parse(this.props.project.picture_paths_results):[]}
 						controller={this.props.controller}
 						index={this.props.index}
 						label="picture_paths_results"
@@ -375,6 +584,7 @@ class AdminProjectSection extends React.Component {
 					className={"AdminProjectSection-delete"+
 						((this.state.buttonPressed)?" pressed":" unpressed")}
 					src={Exit}
+					alt="Delete"
 					onMouseDown={
 						()=>{
 							this.setState(

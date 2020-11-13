@@ -23,26 +23,19 @@ class Sidebar extends React.Component {
         this.getProjectList()
     }
 
-     getProjectList = async () => {
+    async getProjectList () {
         let out = [];
         const projects = await api.makeApiGetCall('projects/');
-        let projectList=this.state.projects
-        for (let i = 0; i < projects.length;i++) {
-            let project = {};
-            project.id=projects[i].id;
-            project.name=projects[i].name;
-            projectList.push(project)
-        }
         this.setState({
-            projects: projectList,
+            projects: projects,
         })
         return out;
     }
 
-    mapProjectLinks = () => {
+    mapProjectLinks() {
         let out = [];
         for (let i=0;i<this.state.projects.length;i++) {
-            out.push(<SidebarLink key={this.state.projects[i].id} link={"/ProjectPage?id="+this.state.projects[i].id}  text={this.state.projects[i].name} isSubLink/>)
+            out.push(<SidebarLink key={this.state.projects[i].id} link={"/projectpage/"+this.state.projects[i].id}  text={this.state.projects[i].name} isSubLink/>)
         }
         return out;
     }
@@ -54,7 +47,7 @@ class Sidebar extends React.Component {
                     <div className="Sidebar-links">
                     <SidebarLink link="/" text="Home"/>
                     <SidebarLink link="/admin" text="Admin" />
-                    <SidebarLink link="/ProjectList" text="Project List:"/>
+                    <SidebarLink link="/projectlist" text="Project List:"/>
                     {projectLinks}
                 </div>
             </div>
