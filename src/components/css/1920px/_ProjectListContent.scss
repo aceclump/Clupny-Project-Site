@@ -1,5 +1,49 @@
 @use '../../../css/mainVars' as main;
 
 @media(min-width: main.$breakLargeMin) {
+    .ProjectListContent {
+        top: 175px;
+        width: 1920px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .ProjectListContent-title {
+            font-size: 70px;
+            margin: 50px 0px;
+        }
+
+        .ProjectListSection {
+            flex-direction: column;
+        }
+        
+        .ProjectListSection-row {
+            flex-direction: row;
+            align-items: center;
+            padding: 20px 100px;
+        }
+
+        .ProjectListSection-row.first > * {
+            margin-left: 25px;
+        }
+
+            .ProjectListSection-projectPic {
+                height: 100px;
+            }
+
+            .ProjectListSection-name {
+                font-size: 45px;
+            }
+
+            .ProjectListSection-techPic {
+                height: 50px;
+                margin-left: 10px;
+            }
+
+        .ProjectListSection-row.second {
+            margin-left: 100px;
+            font-size: 25px;
+            width: 100%;
+        }
 
 }

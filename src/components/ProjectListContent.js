@@ -43,7 +43,7 @@ function ProjectListSection(props) {
 					<div className="ProjectListSection-name">
 						{props.project.name}
 					</div>
-					<div className="">
+					<div className="ProjectListSection-techs">
 						{techs}
 					</div>
 				</div>
