@@ -1,1 +1,27 @@
 @use '../../../css/mainVars.scss' as main;
+
+@media(min-width: main.$breakMediumMin) and (max-width: main.$breakLargeMin - 1) {
+    .Sidebar {
+        margin-top: 38px; 
+        border-style: solid;
+        border-width: 3px;
+        border-left-width: 0px;
+        border-color: main.$accentColor;
+        border-right-width: 23px;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+        .Sidebar a {
+            margin: 5px 12px;
+        }
+
+        .Sidebar-link {
+            font-size: 30px;
+        }
+
+        .Sidebar-subLink {
+            font-size: 23px;
+            padding-left: 20px;
+        }
+}

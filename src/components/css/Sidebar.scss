@@ -8,16 +8,8 @@
 .Sidebar {
     position: relative;
     z-index: 1;
-    margin-top: 50px;
-    border-style: solid;
-    border-width: 2px;
-    border-right-width: 30px;
-    border-left-width: 0px;
-    border-color: main.$accentColor;
     font-family: main.$textFontFamily;
     color: main.$textSecondaryColor;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     height: max-content;
     width: max-content;
     color: main.$textPrimaryColor;
@@ -39,15 +31,5 @@
 
     .Sidebar a {
         width: max-content;
-        margin:5px 15px;
         text-decoration: none;
-    }
-
-    .Sidebar-link {
-        font-size: 40px;
-    }
-
-    .Sidebar-subLink {
-        font-size:35px;
-        padding-left: 25px;
     }
