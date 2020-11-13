@@ -1,0 +1,10 @@
+@use '../../../css/mainVars' as main;
+
+@media(min-width: main.$breakSmallMin) and (max-width: main.$breakMediumMin - 1) {
+    .HomeContent { 
+        top: 400px;
+        width: 590px;
+        margin-top: 25px;
+        font-size: 17px;
+    }
+}

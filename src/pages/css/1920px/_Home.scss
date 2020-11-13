@@ -1,0 +1,12 @@
+@use '../../../css/mainVars' as main;
+
+@media(min-width: main.$breakLargeMin) {
+
+    .HomeContent {
+        top: 400px;
+        width: 1720px;
+        margin-top: 100px;
+        font-size: 32px;
+    }
+
+}
