@@ -1,5 +1,31 @@
 @use '../../../css/mainVars' as main;
 
 @media(min-width: main.$breakSmallMin) and (max-width: main.$breakMediumMin - 1) {
+    .ProjectPageContent {
+        top: 300px;
+        width: 640px;
+    }
 
+        .ProjectPageContent-Title {
+            margin: 25px 0px 0px 0px;
+            font-size: 28px;
+        }
+
+            .ProjectPageContent-Section {
+                margin-top: 15px;
+            }
+
+                .ProjectPageContent-Section-title {
+                    margin: 10px 0px;
+                    font-size: 19px;
+                }
+  
+                .ProjectPageContent-Section-paragraph {
+                    margin: 20px;
+                    font-size: 15px;
+                }          
+
+                .ProjectPageContent-Section-picturelist {
+                    margin: 10px 0px;
+                }
 }
