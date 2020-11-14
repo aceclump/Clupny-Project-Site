@@ -1,4 +1,4 @@
-const api=require('./dbConnection.js');
+const api=require('../../js/dbConnection.js');
 const fs=require('fs')
 
 class ProjectController {

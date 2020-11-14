@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/ProjectListContent.scss';
-const api=require('./js/dbConnection.js');
+const api=require('../js/dbConnection.js');
 
 function ProjectListSection(props) {
 	let projectPic = "";

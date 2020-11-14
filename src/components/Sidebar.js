@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/Sidebar.scss';
-const api=require('./js/dbConnection.js');
+const api=require('../js/dbConnection.js');
 
 function SidebarLink(props) {
     let className="Sidebar-link";

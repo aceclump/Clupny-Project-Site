@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/ProjectPageContent.scss';
-const api = require('./js/dbConnection.js')
+const api = require('../js/dbConnection.js')
 
 function Title(props) {
 	return(
